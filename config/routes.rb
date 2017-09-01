@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tiny_house/usage'
+
   resources :appliances
   resources :appliances
   # The priority is based upon order of creation: first created -> highest priority.
