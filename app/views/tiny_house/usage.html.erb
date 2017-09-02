@@ -33,6 +33,35 @@
     
     <div class="reveal" id="addAppliance" data-reveal>
     	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    	
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Watts</th>
+              <th>Hours per day</th>
+              <th>Daily total (Wh/day)</th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @appliances.each do |appliance| %>
+              <tr>
+                <td><%= appliance.name %></td>
+                <td><%= appliance.watts %></td>
+                <td><%= appliance.hours_per_day %></td>
+                <% wh_per_day = appliance.watts * appliance.hours_per_day %>            
+                <td><%= wh_per_day %></td>
+
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+        <br>
+        
+        <%= link_to 'New Appliance', new_appliance_path %>
+    	
     	<h3>Appliance templates</h3>
     	<section class="block-list">
     	 <header>Kitchen</header>
