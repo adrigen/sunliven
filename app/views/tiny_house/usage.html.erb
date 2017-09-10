@@ -5,12 +5,15 @@
     		
     		<table id="inventory">
                 <tr v-for="appliance in appliances">
-                  <td>{{ appliance.name }}</td><td>{{ appliance.wh_per_day }}</td>
+                  <td>{{ appliance.name }}</td>
+                  <td>{{ appliance.wh_per_day }}</td>
+                  <td><button v-on:click="removeAppliance($index)">x</button></td>
                 </tr>
                 
                 <tr>
                     <td>Total :</td>
                     <td>{{total}}</td>
+                    <td></td>
                 </tr>
             </table>
 

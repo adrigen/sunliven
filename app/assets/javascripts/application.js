@@ -36,7 +36,25 @@ var app4 = new Vue({
         return sum + appliance.wh_per_day; 
       },0);
     }
+  },
+  
+  methods: {
+    // addTodo: function () {
+    //   var item= this.newTodo.trim();
+    //   if (item) {
+    //     this.todos.push({ item: item });
+    //     this.newTodo = '';
+    //   }
+    // },
+        
+    removeAppliance: function (index) {
+      this.appliances.splice(index, 1);
+    },
+    removeAll: function (){
+        this.appliances = [];
+    }
   }
+  
 })
 
 
