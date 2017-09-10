@@ -12,8 +12,34 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// turbolinks
 //= require_tree .
 //= require foundation
 //= require foundation_init
+//= require vue
+
+
+
+
+var app4 = new Vue({
+  el: '#inventory',
+  data: {
+    appliances: [
+      { id: 0, name: 'Fridge', wh_per_day: 1000 },
+      { id: 1, name: 'Kettle', wh_per_day:50 },
+      { id: 2, name: 'Blender', wh_per_day: 20 }
+    ]
+  },
+  computed: {
+    total: function(){
+      return this.appliances.reduce(function(sum, appliance){
+        return sum + appliance.wh_per_day; 
+      },0);
+    }
+  }
+})
+
+
+
+
 
