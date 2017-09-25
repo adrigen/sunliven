@@ -24,6 +24,7 @@
 var app4 = new Vue({
   el: '#inventory',
   data: {
+    newAppliance: '',
     appliances: [
       { id: 0, name: 'Fridge', wh_per_day: 1000 },
       { id: 1, name: 'Kettle', wh_per_day:50 },
@@ -39,13 +40,12 @@ var app4 = new Vue({
   },
   
   methods: {
-    // addTodo: function () {
-    //   var item= this.newTodo.trim();
-    //   if (item) {
-    //     this.todos.push({ item: item });
-    //     this.newTodo = '';
-    //   }
-    // },
+    addAppliance: function (obj) {
+      //var applianceName = obj.data.name
+      //this.appliances.push({name: applianceName}); //{ item: item }
+      //ASK HOW TO DO THIS ON S/E
+
+    },
         
     removeAppliance: function (index) {
       this.appliances.splice(index, 1);

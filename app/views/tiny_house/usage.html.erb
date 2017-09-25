@@ -1,9 +1,10 @@
-   <div class="grid-container">
+<div id="inventory">
+   <div class="grid-container" >
     <h1>Tiny house / van power usage</h1>
     	<div class="callout">
     		<h2>Appliances</h2>
     		
-    		<table id="inventory">
+    		<table >
                 <tr v-for="appliance in appliances">
                   <td>{{ appliance.name }}</td>
                   <td>{{ appliance.wh_per_day }}</td>
@@ -12,10 +13,10 @@
                 
                 <tr>
                     <td>Total :</td>
-                    <td>{{total}}</td>
+                    <td></td>
                     <td></td>
                 </tr>
-            </table>
+        </table>
 
             
  
@@ -23,8 +24,9 @@
 
     		<p><button class="button" data-open="addAppliance">Add</button></p>
     	</div>
+    	
     	<div class="dashboard-number-card positive ">
-    	  <h5 class="dashboard-number-value">4.5</h5>
+    	  <h5 class="dashboard-number-value">{{total}}</h5>
     	  <div>
     	    <p class="dashboard-number-area">Total power usage</p>
     	    <p class="dashboard-number-delta">
@@ -32,7 +34,7 @@
     	    </p>
     	  </div>
     
-    	</div>	
+      </div>	
     
     
     	<div class="card card-product-hover">
@@ -51,8 +53,9 @@
     </div>
     
     <div class="reveal" id="addAppliance" data-reveal>
-    	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    	
+    	<a class="close-reveal-modal button" aria-label="Close">&#215;</a>
+
+    	<h3>Appliance templates</h3>
         <table id="appliance-templates">
           <thead>
             <tr>
@@ -72,7 +75,7 @@
                 <td><%= appliance.hours_per_day %></td>
                 <% wh_per_day = appliance.watts * appliance.hours_per_day %>            
                 <td><%= wh_per_day %></td>
-                <td>+</td>
+                <td><button v-on:click="addAppliance(this)" class="button" data-name="<%= appliance.name %>">+</button></td>
 
               </tr>
             <% end %>
@@ -83,202 +86,7 @@
         
         <%= link_to 'New Appliance', new_appliance_path %>
     	
-    	<h3>Appliance templates</h3>
-    	<section class="block-list">
-    	 <header>Kitchen</header>
-    	  <ul>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Blender</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Bread maker</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Coffee grinder</p>
-    	      </div>
-    	      <div>
-    		<a href="#" >Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Coffee perculator</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Dishwasher</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Food processor</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Fry pan </p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	  </ul>
-    	</section>
-    
-    	<section class="block-list">
-    	  <header>Chest fridges</header>
-    	  <ul>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Autofridge (40L)</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Autofridge (60L)</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Autofridge (80L)</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Engels, etc (40L)</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Engles, etc (60L)</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Engles, etc (80L)</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	  </ul>
-    	</section>
-    
-    
-    	<section class="block-list">
-    	  <header>Upright fridges</header>
-    	  <ul>
-    	    <li>
-    	      <div>
-    		<p class="list-header">110L</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">150L</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">220L</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">300L</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	  </ul>
-    	</section>
-    
-    
-    
-    	<section class="block-list">
-    	  <header>Electronics</header>
-    	  <ul>
-    	    <li>
-    	      <div>
-    		<p class="list-header">DVD/Bluray</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Computer, desktop</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Computer, laptop</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <div>
-    		<p class="list-header">Computer printer, inkjet</p>
-    	      </div>
-    	      <div>
-    		<a href="#">Add</a>
-    	      </div>
-    	    </li>
-    	    <li>
-    	      <p class="list-header">Computer printer, laser</p>
-    	    </li>
-    	  </ul>
-    	</section>
+
+
     </div>
+</div>
