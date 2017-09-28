@@ -75,7 +75,12 @@
                 <td><%= appliance.hours_per_day %></td>
                 <% wh_per_day = appliance.watts * appliance.hours_per_day %>            
                 <td><%= wh_per_day %></td>
-                <td><button v-on:click="addAppliance(this)" class="button" data-name="<%= appliance.name %>">+</button></td>
+                <td><button v-on:click="addAppliance" class="button" 
+                  data-name="<%= appliance.name %>"
+                  data-watts="<%= appliance.watts %>"
+                  data-hours_per_day="<%= appliance.hours_per_day %>"
+                  
+                    >+</button></td>
 
               </tr>
             <% end %>

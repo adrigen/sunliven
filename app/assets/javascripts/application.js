@@ -40,15 +40,20 @@ var app4 = new Vue({
   },
   
   methods: {
-    addAppliance: function (obj) {
-      //var applianceName = obj.data.name
-      //this.appliances.push({name: applianceName}); //{ item: item }
+    addAppliance: function (event) {
+      var applianceName = event.target.getAttribute('data-name'); 
+      var applianceWatts = event.target.getAttribute('data-watts'); 
+      var applianceHrsPD = event.target.getAttribute('data-hours_per_day'); 
+      var applianceWHPD = applianceWatts*applianceHrsPD
+      this.appliances.push({name: applianceName, wh_per_day: applianceWHPD}); //{ item: item }
       //ASK HOW TO DO THIS ON S/E
+      
+      // wrap your brain around this... https://stackoverflow.com/questions/39357415/vuejs-read-dom-attributes
 
     },
         
     removeAppliance: function (index) {
-      this.appliances.splice(index, 1);
+      //this.appliances.splice(index, 1);
     },
     removeAll: function (){
         this.appliances = [];
