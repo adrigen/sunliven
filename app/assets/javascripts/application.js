@@ -25,11 +25,7 @@ var app4 = new Vue({
   el: '#inventory',
   data: {
     newAppliance: '',
-    appliances: [
-      { id: 0, name: 'Fridge', wh_per_day: 1000 },
-      { id: 1, name: 'Kettle', wh_per_day:50 },
-      { id: 2, name: 'Blender', wh_per_day: 20 }
-    ]
+    appliances: []
   },
   computed: {
     total: function(){
@@ -46,9 +42,8 @@ var app4 = new Vue({
       var applianceHrsPD = event.target.getAttribute('data-hours_per_day'); 
       var applianceWHPD = applianceWatts*applianceHrsPD
       this.appliances.push({name: applianceName, wh_per_day: applianceWHPD}); //{ item: item }
-      //ASK HOW TO DO THIS ON S/E
-      
-      // wrap your brain around this... https://stackoverflow.com/questions/39357415/vuejs-read-dom-attributes
+
+
 
     },
         
@@ -61,8 +56,6 @@ var app4 = new Vue({
   }
   
 })
-
-
 
 
 
