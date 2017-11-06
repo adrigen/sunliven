@@ -25,7 +25,8 @@ var app4 = new Vue({
   el: '#inventory',
   data: {
     newAppliance: '',
-    appliances: []
+    appliances: [],
+    products: gon.products
   },
   computed: {
     total: function(){
@@ -34,8 +35,14 @@ var app4 = new Vue({
       },0);
     }
   },
+  watch: {
+    total: function(){
+      console.log(gon.products)
+    }
+  },
   
   methods: {
+
     addAppliance: function (event) {
       var applianceName = event.target.getAttribute('data-name'); 
       var applianceWatts = event.target.getAttribute('data-watts'); 
@@ -52,7 +59,9 @@ var app4 = new Vue({
     },
     removeAll: function (){
         this.appliances = [];
-    }
+    },
+
+
   }
   
 })

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :products
+  get 'products/new'
+
   get 'tiny_house/usage'
 
   resources :appliances

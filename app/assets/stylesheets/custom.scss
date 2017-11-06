@@ -80,3 +80,15 @@ $card-product-hover-title-font-size: 1.4rem;
 .card-product-hover.hover a:nth-child(3) {
   transition-delay: 0.2s;
 }
+
+
+
+//Show only the first suitable product
+#products {
+    .card {
+        display:none;
+    }
+    .card:first-child {
+        display:block; 
+    }
+}

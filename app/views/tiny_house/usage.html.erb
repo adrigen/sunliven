@@ -8,7 +8,7 @@
                 <tr v-for="appliance in appliances">
                   <td>{{ appliance.name }}</td>
                   <td>{{ appliance.wh_per_day }}</td>
-                  <td><button v-on:click="removeAppliance($index)">x</button></td>
+                  <td><button class="button" v-on:click="removeAppliance($index)">x</button></td>
                 </tr>
                 
                 <tr>
@@ -36,18 +36,20 @@
     
       </div>	
     
-    
-    	<div class="card card-product-hover">
-    	  <img src="http://www.elk101store.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/s/m/smart-display_1.jpg" alt="yeti 1000" />
-    	  <div class="card-product-hover-icons">
-    	    <a href="#"><i class="fa fa-shopping-cart">x</i></a>
-    	    <a href="#"><i class="fa fa-share-alt">x</i></a>
-    	  </div>
-    	  <div class="card-product-hover-details">
-    	    <h3 class="card-product-hover-title">Goal Zero Yeti 1000 Portable Power Station</h3>
-    	    <span class="card-product-hover-price">$1250.00</span>
-    	  </div>
-    	</div>
+
+      <div id="products" >    
+        	<div class="card card-product-hover" v-for="product in products" v-if="product.wattHours>total">
+        	  <img src="#" alt="" />
+        	  <div class="card-product-hover-icons">
+        	    <a href="#"><i class="fa fa-shopping-cart">x</i></a>
+        	    <a href="#"><i class="fa fa-share-alt">x</i></a>
+        	  </div>
+        	  <div class="card-product-hover-details">
+        	    <h3 class="card-product-hover-title">{{product.name}}</h3>
+        	    <span class="card-product-hover-price">${{product.price}}</span>
+        	  </div>
+        	</div>
+      </div>  
     
     </div>
     
