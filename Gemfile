@@ -24,6 +24,7 @@ gem 'foundation-rails', '6.4.1.2'
 gem 'sass', '3.4.0'
 gem 'vuejs-rails'
 gem 'gon'
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

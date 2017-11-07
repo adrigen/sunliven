@@ -10,6 +10,10 @@
 
 // We include everything by default.  To slim your CSS, remove components you don't use.
 
+
+
+@include foundation-xy-grid-classes;
+
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;

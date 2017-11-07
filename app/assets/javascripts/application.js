@@ -19,8 +19,6 @@
 //= require vue
 
 
-
-
 var app4 = new Vue({
   el: '#inventory',
   data: {
@@ -43,19 +41,21 @@ var app4 = new Vue({
   
   methods: {
 
+
     addAppliance: function (event) {
       var applianceName = event.target.getAttribute('data-name'); 
       var applianceWatts = event.target.getAttribute('data-watts'); 
       var applianceHrsPD = event.target.getAttribute('data-hours_per_day'); 
-      var applianceWHPD = applianceWatts*applianceHrsPD
+      var applianceWHPD = applianceWatts*applianceHrsPD;
       this.appliances.push({name: applianceName, wh_per_day: applianceWHPD}); //{ item: item }
 
 
 
     },
         
-    removeAppliance: function (index) {
-      //this.appliances.splice(index, 1);
+    removeAppliance: function (event) {
+      var applianceIndex = event.target.getAttribute('data-index'); 
+      this.appliances.splice(applianceIndex, 1);
     },
     removeAll: function (){
         this.appliances = [];

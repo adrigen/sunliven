@@ -1,21 +1,20 @@
 <div id="inventory">
-   <div class="grid-container" >
-    <h1>Tiny house / van power usage</h1>
-    	<div class="callout">
+   <div class="grid-container grid-x" >
+      <h1 class=" large-12 medium-12 small-12 cell">Tiny house / van power usage</h1>
+    	<div class="callout large-12 medium-12 small-12 cell">
     		<h2>Appliances</h2>
     		
     		<table >
-                <tr v-for="appliance in appliances">
+                <tr v-for="(appliance, appIndex) in appliances">
                   <td>{{ appliance.name }}</td>
                   <td>{{ appliance.wh_per_day }}</td>
-                  <td><button class="button" v-on:click="removeAppliance($index)">x</button></td>
+                  <td><button class="button" v-on:click="removeAppliance"
+                      :data-index="appIndex">x</button>
+
+                  </td>
                 </tr>
                 
-                <tr>
-                    <td>Total :</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
         </table>
 
             
@@ -25,24 +24,24 @@
     		<p><button class="button" data-open="addAppliance">Add</button></p>
     	</div>
     	
-    	<div class="dashboard-number-card positive ">
+    	<div class="dashboard-number-card positive medium-6 medium-offset-3  large-4 large-offset-4 cell">
     	  <h5 class="dashboard-number-value">{{total}}</h5>
     	  <div>
-    	    <p class="dashboard-number-area">Total power usage</p>
+    	    <p class="dashboard-number-area">total power usage</p>
     	    <p class="dashboard-number-delta">
-    	  kilowatt hours per day 
+    	  watt hours per day 
     	    </p>
     	  </div>
     
       </div>	
     
 
-      <div id="products" >    
+      <div id="products" class="medium-6 medium-offset-3 large-4 large-offset-4 cell" >    
         	<div class="card card-product-hover" v-for="product in products" v-if="product.wattHours>total">
-        	  <img src="#" alt="" />
+            <%= image_tag("Yeti-1250-Hero.jpg", alt: "PRODUCT NAME")%>
         	  <div class="card-product-hover-icons">
-        	    <a href="#"><i class="fa fa-shopping-cart">x</i></a>
-        	    <a href="#"><i class="fa fa-share-alt">x</i></a>
+        	    <a href="#"><i class="fa fa-shopping-cart"></i></a>
+        	    <a href="#"><i class="fa fa-share-alt"></i></a>
         	  </div>
         	  <div class="card-product-hover-details">
         	    <h3 class="card-product-hover-title">{{product.name}}</h3>
@@ -54,7 +53,7 @@
     </div>
     
     <div class="reveal" id="addAppliance" data-reveal>
-    	<a class="close-reveal-modal button" aria-label="Close">&#215;</a>
+    	<!--<a class="close-reveal-modal button" aria-label="Close">&#215;</a>-->
 
     	<h3>Appliance templates</h3>
         <table id="appliance-templates">
